@@ -300,8 +300,17 @@ return "safe";
 function fetchData(){
 
 fetch(SHEET_URL)
-.then(res=>res.json())
-.then(data=>{
+.then(res => res.json())
+.then(data => {
+
+console.log(data);
+
+if(!data.values){
+   console.log("No values found");
+   return;
+}
+
+const rows = data.values.slice(1);
 
 const rows=data.values.slice(1);
 
